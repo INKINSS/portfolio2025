@@ -1,0 +1,16 @@
+---
+import NavLink from './NavLink.astro';
+---
+
+<header class="flex justify-between">
+    <div>
+        <a href="/" class="text-grayLight tracking-[.2rem] cursor-default">SAMDEV</a>
+    </div>
+    <nav>
+        <ul class="flex flex-col items-end gap-2">
+            <li><NavLink exact href="/" activeClass='text-white opacity-100' class='text-grayLight opacity-70 hover:underline-offset-4 hover:underline'>INICIO</NavLink></li>
+            <li><NavLink href="/proyects" activeClass='text-white opacity-100' class='text-grayLight opacity-70 hover:underline-offset-4 hover:underline'>PROYECTOS</NavLink></li>
+            <li><NavLink href="/contact" activeClass='text-white opacity-100' class='text-grayLight opacity-70 hover:underline-offset-4 hover:underline'>CONTACTO</NavLink></li>
+        </ul>
+    </nav>
+</header>
