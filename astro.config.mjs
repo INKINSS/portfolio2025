@@ -2,8 +2,8 @@
 import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
-import animate from 'tailwindcss-animate';
-import typography from '@tailwindcss/typography';
+
+import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,6 +12,8 @@ export default defineConfig({
   },
 
   vite: {
-    plugins: [tailwindcss(), animate(), typography()]
-  }
+    plugins: [tailwindcss()]
+  },
+
+  integrations: [react()]
 });
