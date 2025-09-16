@@ -1,8 +1,89 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/navBar/NavBar.astro';
+import FavoriteTechnology from '@/components/common/FavoriteTechnology';
+import Contributions from '@/components/contributions/Contributions';
+import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 ---
 
-<Layout>
-	<Welcome />
+<Layout class="w-full flex flex-col justify-between">
+    <div class="flex flex-col justify-between w-full h-full">
+        <div>
+            <NavBar />
+            <main class="flex flex-col md:flex md:flex-row mt-20">
+                <section
+                    class="md:w-1/2 md:pr-10 flex flex-col items-center md:items-end md:border-r-2 md:border-grayLight animate-blurFade border-b border-grayLight pb-10 md:border-b-0 md:pb-0"
+                >
+                    <h2
+                        class="text-white md:text-[1.4rem] tracking-[.2rem] text-center md:text-end"
+                    >
+                        me llamo Samuel
+                    </h2>
+                    <h1
+                        class="text-yellow-500 text-[1.4rem] font-bold md:text-[2rem] tracking-[.4rem] text-center md:text-end"
+                    >
+                        DESARROLLADOR FRONTEND
+                    </h1>
+                    <p
+                        class="text-grayLight text-center md:text-end md:w-[70%] p prose-p:text-grayLight prose"
+                    >
+                        Llevo 3 años explorando el mundo del desarrollo web,
+                        uniendo frontend, backend y bases de datos. <strong
+                            class="text-white prose"
+                            >Creo que programar no solo es código, es crear con
+                            claridad, estructura y sentido.</strong>
+                    </p>
+                    <div class="flex gap-3 mt-5">
+                        <a href="/proyects" class="text-grayLight text-[1rem] border border-white px-3 py-1 bg-transparent hover:bg-white hover:text-gray-900 transition-colors duration-300">proyectos</a>
+                        <a href="/contact" class="text-grayLight text-[1rem] border-b border-white px-3 py-1 bg-transparent hover:bg-white hover:text-gray-900 transition-colors duration-300">contáctame</a>
+                    </div>
+                </section>
+                <section
+                    class="md:w-1/2 pl-10 flex flex-col items-center md:items-start mt-10 md:mt-0 text-[1.5rem] md:text-[2rem] animate-blurFade duration-[1.5s]"
+                >
+                    <h2
+                        class="text-white md:text-[1.4rem] tracking-[.2rem] text-center md:text-end"
+                    >
+                        mis tecnologías favoritas
+                    </h2>
+                    <FavoriteTechnology client:visible />
+                    <Contributions client:visible />
+                </section>
+            </main>
+        </div>
+        <footer
+            class="flex w-full justify-center gap-3 mb-5 animate-blurFade duration-[1.5s]"
+        >
+            <a
+                href="https://github.com/INKINSS"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <FaGithub
+                    size={24}
+                    className="fill-grayLight hover:fill-white transition-colors duration-300 hover:scale-110 hover:cursor-pointer"
+                />
+            </a>
+            <a
+                href="https://www.linkedin.com/in/samuel-p%C3%A9rez-dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <FaLinkedin
+                    size={24}
+                    className="fill-grayLight hover:fill-white transition-colors duration-300 hover:scale-110 hover:cursor-pointer"
+                />
+            </a>
+            <a
+                href="https://www.instagram.com/samuelperez_98/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <FaInstagram
+                    size={24}
+                    className="fill-grayLight hover:fill-white transition-colors duration-300 hover:scale-110 hover:cursor-pointer"
+                />
+            </a>
+        </footer>
+    </div>
 </Layout>
