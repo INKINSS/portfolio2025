@@ -1,9 +1,195 @@
 ---
-import NavBar from "../components/navBar/NavBar.astro";
-import Layout from "../layouts/Layout.astro";
+import NavBar from '../components/navBar/NavBar.astro';
+import Layout from '../layouts/Layout.astro';
+import { TiSocialAtCircular } from 'react-icons/ti';
+import { FaGamepad } from 'react-icons/fa';
+import { PiBriefcaseBold } from 'react-icons/pi';
+import { FaRegStar } from 'react-icons/fa6';
+import { FaReact } from 'react-icons/fa';
+import { RiTailwindCssFill } from 'react-icons/ri';
+import { RiSupabaseFill } from 'react-icons/ri';
+import { BiLogoPostgresql } from 'react-icons/bi';
+import { SiTypescript } from 'react-icons/si';
+import { SiAstro } from 'react-icons/si';
+import { SiShadcnui } from 'react-icons/si';
+import { SiChakraui } from 'react-icons/si';
+import { SiMui } from 'react-icons/si';
+import CommonFooter from '@/components/footer/CommonFooter.astro';
+import { FaFigma } from 'react-icons/fa';
+import ToolTipItem from '@/components/reusable/ToolTipItem';
+
+const proyects = [
+    {
+        title: 'ITB',
+        category: 'experiencia',
+        isExperience: true,
+        icon: FaRegStar,
+        tools: [
+            { name: 'react', icon: FaReact },
+            { name: 'typescript', icon: SiTypescript },
+            { name: 'tailwind', icon: RiTailwindCssFill },
+            { name: 'supabase', icon: RiSupabaseFill },
+            { name: 'postgresql', icon: BiLogoPostgresql },
+            { name: 'shadcn', icon: SiShadcnui },
+        ],
+        description:
+            'Sitio privado para una institución con sistema de autenticación y roles, desarrollado para seguimiento académico de alumnos: asignaturas, tareas y exámenes.',
+        urlDeploy: 'https://www.itbguate.com/',
+    },
+    {
+        title: 'Clon de espotify desktop',
+        category: 'red social',
+        icon: TiSocialAtCircular,
+        tools: [
+            { name: 'astro', icon: SiAstro },
+            { name: 'react', icon: FaReact },
+            { name: 'typescript', icon: SiTypescript },
+            { name: 'tailwind', icon: RiTailwindCssFill },
+            { name: 'materialUI', icon: SiMui },
+        ],
+        description:
+            'Clon funcional de Spotify creado con Astro, React y TailwindCSS. Permite reproducir música, álbumes y podcasts, con playlists, reproductor básico e interfaz moderna.',
+        urlRepo: 'https://github.com/INKINSS/iplay',
+        urlDeploy: 'https://clon-spotify-blush.vercel.app/',
+    },
+    {
+        title: 'Clon de X responsive',
+        category: 'red social',
+        icon: TiSocialAtCircular,
+        tools: [
+            { name: 'react', icon: FaReact },
+            { name: 'typescript', icon: SiTypescript },
+            { name: 'tailwind', icon: RiTailwindCssFill },
+            { name: 'chakraUI', icon: SiChakraui },
+        ],
+        description:
+            'Clon de Twitter desarrollado con React, TailwindCSS y Chakra UI. Incluye vistas de tweets públicos y de seguimiento en un diseño moderno y responsive.',
+        urlRepo: 'https://github.com/INKINSS/Twitter',
+        urlDeploy: 'https://twitter-wheat-two.vercel.app/',
+    },
+    {
+        title: 'Quizz de Javascript',
+        category: 'juego',
+        icon: FaGamepad,
+        tools: [
+            { name: 'react', icon: FaReact },
+            { name: 'typescript', icon: SiTypescript },
+            { name: 'tailwind', icon: RiTailwindCssFill },
+            { name: 'shadcn', icon: SiShadcnui },
+        ],
+        description:
+            'Quiz de JavaScript hecho con React, Zustand, TailwindCSS y shadcn/ui. Genera 15 preguntas aleatorias, muestra la respuesta correcta y da nota final sobre 100.',
+        urlRepo: 'https://github.com/INKINSS/quizz-javascript',
+        urlDeploy: 'https://quizz-javascript-mu.vercel.app/',
+    },
+    {
+        title: 'Portfolio personal',
+        category: 'portfolio',
+        icon: PiBriefcaseBold,
+        tools: [
+            { name: 'astro', icon: SiAstro },
+            { name: 'react', icon: FaReact },
+            { name: 'typescript', icon: SiTypescript },
+            { name: 'tailwind', icon: RiTailwindCssFill },
+            { name: 'shadcn', icon: SiShadcnui },
+        ],
+        description:
+            'Este portafolio fue desarrollado con Astro, React y TailwindCSS, con animaciones en CSS. Diseño limpio, moderno y responsive para mostrar proyectos de forma profesional.',
+        urlRepo: 'https://github.com/INKINSS/portfolio2025',
+    },
+    {
+        title: 'Diseño de reproductor de musica',
+        category: 'diseño',
+        icon: PiBriefcaseBold,
+        tools: [{ name: 'figma', icon: FaFigma }],
+        description:
+            'Diseño de reproductor de música en Figma con vistas responsive para móvil, iPad y escritorio. Interfaz moderna, limpia y minimalista.',
+        urlRepo: 'https://github.com/INKINSS/appMusic-Desing/tree/main',
+        urlDeploy: 'https://www.figma.com/community/file/1449450723489793042',
+    },
+];
 ---
 
 <Layout>
     <NavBar />
-    <h1>Proyectos</h1>
+    <main class="mt-20 md:mt-10">
+        <h1 class="text-white text-center text-[2rem] animate-blurFade">
+            Proyectos Realizados
+        </h1>
+        <div
+            class="flex flex-wrap mt-5 animate-blurFade duration-[1.5s] justify-center"
+        >
+            {
+                proyects.map((proyect) => {
+                    const Icon = proyect.icon;
+                    const Tools = proyect.tools;
+                    return (
+                        <article class="border border-grayExtraLight w-full p-5 flex flex-col justify-between items-end gap-2 hover:border-gray-500 transition md:w-1/2 lg:w-1/3 bg-blue-100/5">
+                            <div class="flex flex-col gap-1">
+                                <div class="flex gap-2 items-center justify-between">
+                                    <div class="flex gap-2">
+                                        <figure class="text-[24px] text-yellow-300">
+                                            <Icon />
+                                        </figure>
+                                        <span
+                                            class={
+                                                proyect.isExperience
+                                                    ? 'text-yellow-300 text-[1.3rem] font-light'
+                                                    : 'text-grayLight text-[1.3rem] font-light'
+                                            }
+                                        >
+                                            {proyect.category}
+                                        </span>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        {Tools.map(({ name, icon: Icon }) => {
+                                            return (
+                                                <ToolTipItem
+                                                    client:visible
+                                                    content={name}
+                                                >
+                                                    <Icon className='text-grayLight hover:text-white transition-colors duration-300 hover:scale-110' />
+                                                </ToolTipItem>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                                <h2 class="text-white text-[1.5rem] font-semibold">
+                                    {proyect.title}
+                                </h2>
+                                <p class="text-grayLight text-sm md:text-base mt-2 prose prose-p:text-grayLight">
+                                    {proyect.description}
+                                </p>
+                            </div>
+                            <div class="flex gap-3 mt-4">
+                                {proyect.urlRepo && (
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="text-grayLight border border-grayLight px-3 py-1 hover:bg-white hover:text-gray-900 transition-colors duration-300"
+                                        href={proyect.urlRepo}
+                                    >
+                                        Repositorio
+                                    </a>
+                                )}
+                                {proyect.urlDeploy && (
+                                    <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="text-grayLight border-b border-grayLight px-3 py-1 hover:bg-white hover:text-gray-900 transition-colors duration-300"
+                                        href={proyect.urlDeploy}
+                                    >
+                                        vista previa
+                                    </a>
+                                )}
+                            </div>
+                        </article>
+                    );
+                })
+            }
+        </div>
+        <div>
+            <CommonFooter />
+        </div>
+    </main>
 </Layout>

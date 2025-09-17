@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import NavBar from '../components/navBar/NavBar.astro';
 import FavoriteTechnology from '@/components/common/FavoriteTechnology';
 import Contributions from '@/components/contributions/Contributions';
-import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import CommonFooter from '@/components/footer/CommonFooter.astro';
 ---
 
 <Layout class="w-full flex flex-col justify-between">
@@ -51,39 +51,8 @@ import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
                 </section>
             </main>
         </div>
-        <footer
-            class="flex w-full justify-center gap-3 mb-5 animate-blurFade duration-[1.5s]"
-        >
-            <a
-                href="https://github.com/INKINSS"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <FaGithub
-                    size={24}
-                    className="fill-grayLight hover:fill-white transition-colors duration-300 hover:scale-110 hover:cursor-pointer"
-                />
-            </a>
-            <a
-                href="https://www.linkedin.com/in/samuel-p%C3%A9rez-dev/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <FaLinkedin
-                    size={24}
-                    className="fill-grayLight hover:fill-white transition-colors duration-300 hover:scale-110 hover:cursor-pointer"
-                />
-            </a>
-            <a
-                href="https://www.instagram.com/samuelperez_98/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <FaInstagram
-                    size={24}
-                    className="fill-grayLight hover:fill-white transition-colors duration-300 hover:scale-110 hover:cursor-pointer"
-                />
-            </a>
-        </footer>
+        <div class="pb-10">
+            <CommonFooter />
+        </div>
     </div>
 </Layout>

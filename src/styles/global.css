@@ -16,6 +16,7 @@
     --color-background-primary: rgb(2,58,65);
     --color-background-secundary: rgb(1,43,48);
     --color-grayLight: rgb(190,190,190);
+    --color-grayExtraLight: rgb(25,65,71);
 
     /*fonts*/
     --font-league-spartan: 'League Spartan', sans-serif;
@@ -34,6 +35,14 @@
     }
 }
 
+.scrollbar-hidden {
+    overflow: auto;
+  }
+  
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+  
 @theme inline {
     --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);
