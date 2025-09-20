@@ -1,9 +1,85 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import NavBar from "../components/navBar/NavBar.astro";
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/navBar/NavBar.astro';
+import CommonFooter from '@/components/footer/CommonFooter.astro';
+import Form from '@/components/form/Form';
+
+import { FaInstagram } from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
+
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { MdOutlineEmail } from "react-icons/md";
+import { FaWhatsapp } from "react-icons/fa";
+
 ---
 
 <Layout>
     <NavBar />
-    <h1>Contacto</h1>
+    <main class="flex flex-col mt-5 md:flex-row items-center md:items-stretch w-full lg:justify-center">
+        <section
+            class="flex flex-col w-10/12 md:w-full lg:w-1/3 border border-grayExtraLight p-7 animate-blurFade hover:border-gray-500 transition-colors duration-300"
+        >
+            <header>
+                <h2
+                    class="text-white text-[1.5rem] text-center font-semibold prose prose-h2:text-white"
+                >
+                    ¿tienes un proyecto en mente?
+                </h2>
+                <p
+                    class="text-grayLight text-sm md:text-base mt-2 text-center prose prose-p:text-grayLight"
+                >
+                    Si tienes un proyecto o colaboración en mente,
+                    este es el lugar para empezar
+                </p>
+            </header>
+            <Form client:load />
+        </section>
+        <section class="flex flex-col w-10/12 md:w-full lg:w-1/3 bg-blue-100/5 border border-grayExtraLight p-7 hover:border-gray-500 transition-colors duration-300 animate-blurFade">
+            <div class="flex flex-col gap-2 pb-3">
+                <div class="flex gap-2 items-center">
+                    <FaMapMarkerAlt size={20} className="fill-grayLight transition-colors duration-300" />
+                    <p class="text-grayLight text-sm md:text-base">Guatemala, Guatemala</p>
+                </div>
+                <div class="flex gap-2 items-center">
+                    <MdOutlineEmail size={20} className="fill-grayLight transition-colors duration-300" />
+                    <p class="text-grayLight text-sm md:text-base">martinsamuelpp@gmail.com</p>
+                </div>
+                <div class="flex gap-2 items-center">
+                    <FaWhatsapp size={20} className="fill-grayLight transition-colors duration-300" />
+                    <p class="text-grayLight text-sm md:text-base">+(502) 5621-6845</p>
+                </div>
+            </div>
+            <div class="flex flex-col gap-2 pt-3 border-t border-grayLight">
+                <div class="flex gap-2 items-end">
+                    <FaInstagram size={20} className="fill-grayLight transition-colors duration-300" />
+                    <a
+                        class="text-grayLight hover:text-white transition-colors duration-300"
+                        href="https://www.instagram.com/samuelperez_98/"
+                        target="_blank"
+                        rel="noopener noreferrer">samuelperez_98</a
+                    >
+                </div>
+                <div class="flex gap-2 items-end">
+                    <FaLinkedin size={20} className="fill-grayLight transition-colors duration-300" />
+                    <a
+                        class="text-grayLight hover:text-white transition-colors duration-300"
+                        href="https://www.linkedin.com/in/samuel-p%C3%A9rez-dev/"
+                        target="_blank"
+                        rel="noopener noreferrer">Martin Samuel Perez</a
+                    >
+                </div>
+                <div class="flex gap-2 items-end">
+                    <FaGithub size={20} className="fill-grayLight transition-colors duration-300" />
+                    <a
+                        class="text-grayLight hover:text-white transition-colors duration-300"
+                        href="https://github.com/INKINSS"
+                        target="_blank"
+                        rel="noopener noreferrer">INKINSS</a
+                    >
+                </div>
+            </div>
+        </section>
+    </main>
+    <CommonFooter />
 </Layout>
