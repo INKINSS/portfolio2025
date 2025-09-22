@@ -2,8 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import NavBar from '../components/navBar/NavBar.astro';
 import FavoriteTechnology from '@/components/common/FavoriteTechnology';
-import Contributions from '@/components/contributions/Contributions';
 import CommonFooter from '@/components/footer/CommonFooter.astro';
+
+import { GrCertificate } from "react-icons/gr";
+import { AiFillSafetyCertificate } from "react-icons/ai";
+
+
 ---
 
 <Layout class="w-full flex flex-col justify-between">
@@ -25,13 +29,9 @@ import CommonFooter from '@/components/footer/CommonFooter.astro';
                         DESARROLLADOR FRONTEND
                     </h1>
                     <p
-                        class="text-grayLight text-center md:text-end md:w-[70%] p prose-p:text-grayLight prose"
+                        class="text-grayLight text-center md:text-end md:w-[95%] prose-p:text-grayLight prose"
                     >
-                        Llevo 3 años explorando el mundo del desarrollo web,
-                        uniendo frontend, backend y bases de datos. <strong
-                            class="text-white prose"
-                            >Creo que programar no solo es código, es crear con
-                            claridad, estructura y sentido.</strong>
+                    Hace más de dos años, descubrí mi pasión por el desarrollo web, explorando las herramientas principales para crear diseños simples y funcionales que transmitan ideas de manera efectiva en el ámbito digital. Creo firmemente en la importancia de un código limpio y un diseño adecuado para lograr este propósito.
                     </p>
                     <div class="flex gap-3 mt-5">
                         <a href="/proyects" class="text-grayLight text-[1rem] border border-white px-3 py-1 bg-transparent hover:bg-white hover:text-gray-900 transition-colors duration-300">proyectos</a>
@@ -39,7 +39,7 @@ import CommonFooter from '@/components/footer/CommonFooter.astro';
                     </div>
                 </section>
                 <section
-                    class="md:w-1/2 pl-10 flex flex-col items-center md:items-start mt-10 md:mt-0 text-[1.5rem] md:text-[2rem] animate-blurFade duration-[1.5s]"
+                    class="md:w-1/2 md:pl-10 flex flex-col items-center md:items-start mt-10 md:mt-0 text-[1.5rem] md:text-[2rem] animate-blurFade duration-[1.5s]"
                 >
                     <h2
                         class="text-white md:text-[1.4rem] tracking-[.2rem] text-center md:text-end"
@@ -47,7 +47,20 @@ import CommonFooter from '@/components/footer/CommonFooter.astro';
                         mis tecnologías favoritas
                     </h2>
                     <FavoriteTechnology client:visible />
-                    <Contributions client:visible />
+                    <div class="flex flex-col gap-3 mt-7 md:mt-3">
+                        <h3 class="text-white md:text-[1.4rem] tracking-[.2rem] text-center md:text-start">actividades recientes</h3>
+                        <div class="flex flex-col gap-1">
+                            <div class="flex items-center gap-2 justify-center md:justify-start">
+                                <GrCertificate className="text-yellow-500 text-[1.2rem]"/>
+                                <span class="text-grayLight text-[1.2rem]">+30 Licencias y certificados</span>
+                            </div>
+                            <div class="flex items-center gap-2 justify-center md:justify-start">
+                                <AiFillSafetyCertificate className="text-yellow-500 text-[1.2rem]"/>
+                                <span class="text-grayLight text-[1.2rem]">Estudiante del programa FullStackOpen</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/cv/cv.pdf" target="_blank" class="text-grayLight text-[1rem] border border-white px-3 py-1 bg-transparent hover:bg-white hover:text-gray-900 transition-colors duration-300 mt-[23px]">revisar curriculum</a>
                 </section>
             </main>
         </div>
