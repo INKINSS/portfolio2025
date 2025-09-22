@@ -35,6 +35,7 @@ const proyects = [
         description:
             'Sitio privado para una institución con sistema de autenticación y roles, desarrollado para seguimiento académico de alumnos: asignaturas, tareas y exámenes.',
         urlDeploy: 'https://www.itbguate.com/',
+        dateCreated: 'Junio - Agosto 2025',
     },
     {
         title: 'Clon de espotify desktop',
@@ -51,6 +52,7 @@ const proyects = [
             'Clon funcional de Spotify creado con Astro, React y TailwindCSS. Permite reproducir música, álbumes y podcasts, con playlists, reproductor básico e interfaz moderna.',
         urlRepo: 'https://github.com/INKINSS/iplay',
         urlDeploy: 'https://clon-spotify-blush.vercel.app/',
+        dateCreated: 'Septiembre 2025',
     },
     {
         title: 'Clon de X responsive',
@@ -66,6 +68,7 @@ const proyects = [
             'Clon de Twitter desarrollado con React, TailwindCSS y Chakra UI. Incluye vistas de tweets públicos y de seguimiento en un diseño moderno y responsive.',
         urlRepo: 'https://github.com/INKINSS/Twitter',
         urlDeploy: 'https://twitter-wheat-two.vercel.app/',
+        dateCreated: 'Febrero 2024',
     },
     {
         title: 'Quizz de Javascript',
@@ -81,6 +84,7 @@ const proyects = [
             'Quiz de JavaScript hecho con React, Zustand, TailwindCSS y shadcn/ui. Genera 15 preguntas aleatorias, muestra la respuesta correcta y da nota final sobre 100.',
         urlRepo: 'https://github.com/INKINSS/quizz-javascript',
         urlDeploy: 'https://quizz-javascript-mu.vercel.app/',
+        dateCreated: 'Febrero 2025',
     },
     {
         title: 'Portfolio personal',
@@ -96,6 +100,7 @@ const proyects = [
         description:
             'Este portafolio fue desarrollado con Astro, React y TailwindCSS, con animaciones en CSS. Diseño limpio, moderno y responsive para mostrar proyectos de forma profesional.',
         urlRepo: 'https://github.com/INKINSS/portfolio2025',
+        dateCreated: 'Septiembre 2025',
     },
     {
         title: 'Diseño de reproductor de musica',
@@ -106,6 +111,7 @@ const proyects = [
             'Diseño de reproductor de música en Figma con vistas responsive para móvil, iPad y escritorio. Interfaz moderna, limpia y minimalista.',
         urlRepo: 'https://github.com/INKINSS/appMusic-Desing/tree/main',
         urlDeploy: 'https://www.figma.com/community/file/1449450723489793042',
+        dateCreated: 'Enero 2025',
     },
 ];
 ---
@@ -161,8 +167,10 @@ const proyects = [
                                     {proyect.description}
                                 </p>
                             </div>
-                            <div class="flex gap-3 mt-4">
-                                {proyect.urlRepo && (
+                            <div class="flex gap-3 mt-4 justify-between w-full">
+                                <span class="text-grayLight text-[1rem]">{proyect.dateCreated}</span>
+                                <div>
+                                    {proyect.urlRepo && (
                                     <a
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -182,6 +190,7 @@ const proyects = [
                                         vista previa
                                     </a>
                                 )}
+                                </div>
                             </div>
                         </article>
                     );
